@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+
+		<title>Star Wars RPG - Jhongert Fuertes</title>
+		
+		<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+		<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+
+	</head>
+	<body>
+		<main>
+			<section class="container">
+				<div id="characters">
+				</div>
+					
+				<div id="yourCharacter">
+					<h2>Your Character</h2>
+				</div>
+
+				<div id="enemies">
+					<h2>Enemies Available To Attack</h2>
+				</div>
+				
+				<div id="fightingSection">
+					<h2>Fight Section</h2>
+					<button id="attack" class="btn">Attack</button>
+				</div>
+				
+				<div id="defenderSection">
+					<h2>Defender</h2>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<p>&copy; 2017 Jhongert Fuertes</p>
+		</footer>
+
+		<script type="text/javascript">
+
+			var characterLock = false;
+			var defender = "", attacker = "";
+
+			var game = { 
+				character: [{name: "Luke Skywalker", hp:100, attackPower: 15, counterAttack: 5, img: 
+					"luke.jpg"},
+					{name: "Darth Vader", hp:120, attackPower: 8, counterAttack: 15, img: "darth.jpg"},
+					{name: "Obi Wan Kenobi", hp:150, attackPower: 5, counterAttack: 20, img: "obi.jpg"},
+					{name: "Kylo Ren", hp:180, attackPower: 3, counterAttack: 25, img: "kylo.jpg"}],
+
+				newGame: function(){
+					var characters = $("#characters");
+
+					for(var i = 0; i < this.character.length; i++){
+						var div = $("<div>").addClass("character").attr("id",i);
+						characters.append(div);
+
+						div.append($("<p>").text(this.character[i]["name"]));
+						div.append($("<img>").attr("src", "assets/images/" + this.character[i]["img"]));
+						div.append($("<p>").text(this.character[i]["hp"]));
+
+					}
+				}
+
+			};
+
+			$(document).ready(function(){
+				
+				game.newGame();
+
+				$(".character").on("click", function(){
+					var el = $(this).clone(false);
+					$("#yourCharacter").append(el);
+					$(this).remove();
+
+					var enemies = $("#characters .character").clone(false);
+					enemies.addClass("enemy").removeClass("character");
+					$("#enemies").append(enemies);
+					$("#characters .character").remove();
+				})
+
+				$("#enemies").on("click", ".enemy", function(){
+					if(!characterLock){
+						var el = $(this).detach();
+						el.off("click").addClass("defender");
+						$("#defenderSection").append(el);
+						characterLock = true;
+					}
+				});
+
+				$("#attack").click(function(){
+
+				});
+			});
+		</script>
+
+	</body>
+</html>
