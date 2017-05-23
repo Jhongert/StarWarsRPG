@@ -12,18 +12,22 @@ body {
 
 
 .container {
-	position: relative;
-	width: 100%;
-	min-width: 1024px;
-	margin: 0 20px;
-	padding-top: 10px;
+	
+	max-width: 1024px;
 	min-height: 700px;
 
 	
 }
-#characters, #yourCharacter {
-	margin-bottom: 10px;
+
+#characters {
+	margin:0 auto;
+	
+
 }
+
+/*#characters, #yourCharacter {
+	margin-bottom: 10px;
+}*/
 
 #yourCharacter {
 	clear: left;
@@ -45,6 +49,9 @@ body {
 	background-color: #fff;
 }
 
+.character p {
+	margin: 0;
+}
 .enemy {
 	background-color: red;
 	border: 2px solid #000;
@@ -54,35 +61,31 @@ body {
 	background-color: #000;
 	border: 2px solid green;
 	cursor: default;
+	color: #fff;
 }
 
-.character img, .enemy img{
+.container img{
 	width: 100%;
-	margin:4px 0;
 }
 
-#fightingSection {
-	clear: left;
-	padding: 10px 0;
+#fightingZone {
+	padding-top:60px;
 }
 
-.btn {
-	margin-top: 5px;
-	display: inline-block;
+
+#msg{
+	color: white;
 }
 
-footer {
-	background-color: #999;
-	padding: 30px 0;
-	color:white;
+#restart {
+	display: none;
 }
 
-footer p {
-	text-align: center;
+#attack {
+	display: none;
 }
 
 h2 {
-	font-size: 26px;
 	color: #fff;
 	
 }
