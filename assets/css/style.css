@@ -12,42 +12,25 @@ body {
 	color: #333;
 	font-family: arial, sans-serif;
 	font-size: 16px;
-	background: url("../images/bg.png");
+	background-image: url("../images/bg.png");
 	background-size: cover;
     background-repeat: no-repeat;
 }
 
 h1 {
 	font-family: "starjedi";
+	font-size: 60px;
+	font-weight: bold;
 }
 
 .container {
-	
-	max-width: 1024px;
-	min-height: 700px;
-
-	
+	min-width: 1024px;
 }
 
-#characters {
-	margin:0 auto;
-	
-
-}
-
-/*#characters, #yourCharacter {
-	margin-bottom: 10px;
-}*/
-
-#yourCharacter {
-	clear: left;
-	height: 160px;
-}
 .character, .enemy, .defender {
 	display: inline-block;
-	float: left;
 	padding: 2px 10px;
-	width: 130px;
+	width: 140px;
 	margin-right: 2px;
 	text-align: center;
 	cursor: pointer;
@@ -85,6 +68,14 @@ h1 {
 
 #msg{
 	color: white;
+	margin-top: 20px;
+	background-color: rgba(0, 0, 0, .5);
+    font-size: 14px;
+    text-align: left;
+}
+
+#msg p {
+	padding:10px;
 }
 
 #restart {
@@ -97,5 +88,4 @@ h1 {
 
 h2 {
 	color: #fff;
-	
 }

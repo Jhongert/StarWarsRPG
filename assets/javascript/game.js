@@ -48,9 +48,7 @@ $(document).ready(function(){
 			div.append($("<p>").text(character[i]["name"]));
 			div.append($("<img>").attr("src", "assets/images/" + character[i]["img"]));
 			div.append($("<span>").text(character[i]["hp"]));
-
 		}
-
 		attachOnClick();
 	}
 
@@ -71,13 +69,15 @@ $(document).ready(function(){
 				attackerHp = character[attackerId].hp;
 				currentCharacter.addClass("attacker");
 				$("#yourCharacter").append(currentCharacter);
-			}else if(defenderId == ""){
+				$("#topMsg").text("Enemies Available To Attack");
+				$(".character:not(.attacker)").addClass("enemy");
+			}else if(defenderId == "" && currentCharacter.attr("id") != attackerId){
 				defenderId = currentCharacter.attr("id");
 				defenderHp = character[defenderId].hp;
 				currentCharacter.addClass("defender");
 				$("#defender").append(currentCharacter);
 
-				$("#attack").css("display", "block");
+				$("#attack").css("display", "inline");
 				msg.empty();
 			}
 		});
@@ -97,7 +97,7 @@ $(document).ready(function(){
 					msg.html("You Won!!!");
 					$("#restart").css("display", "block");
 				}else{
-					msg.html("You have defeated " + character[defenderId].name + ", you can choose to fight another enemy.");
+					msg.html("<p>You have defeated " + character[defenderId].name + ", you can choose to fight another enemy.</p>");
 					defenderId = "";
 				}
 
@@ -107,16 +107,13 @@ $(document).ready(function(){
 				$(".attacker span").text(attackerHp);
 
 				if(attackerHp > 0){
-					msg.html("<p> You attacked " + character[defenderId]["name"] + " for "+ attackPower + " damage</p>");
-
-					msg.append("<p>" + character[defenderId]["name"] + " attacked you back for "+ character[defenderId]["counterAttack"] + " damage</p>");
+					msg.html("<p>You attacked " + character[defenderId]["name"] + " for "+ attackPower + " damage. <br>" +
+					character[defenderId]["name"] + " attacked you back for "+ character[defenderId]["counterAttack"] + " damage.</p>");
 				}else{
-					msg.html("You have been defeated...");
+					msg.html("<p>You have been defeated...</P>");
 					$("#attack").css("display", "none");
 					$("#restart").css("display", "block");
-
 				}
 			}		
-		
 	});
 });
