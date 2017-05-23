@@ -1,3 +1,10 @@
+@font-face {
+    font-family: starjedi;
+    src: url("../fonts/starjedi.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
 	margin: 0;
 	padding: 0;
@@ -10,6 +17,9 @@ body {
     background-repeat: no-repeat;
 }
 
+h1 {
+	font-family: "starjedi";
+}
 
 .container {
 	
