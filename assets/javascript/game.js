@@ -114,7 +114,7 @@ $(document).ready(function(){
 			attackPower += character[attackerId]["attackPower"];
 			defenderHp -= attackPower; //decrease defender hp
 
-			//if defender hp is lest than 1
+			//if defender hp is less than 1
 			if(defenderHp <= 0){
 				$("#" + defenderId).remove(); //remove the defender
 				$("#attack").css("display", "none"); //hide button attack
@@ -138,7 +138,7 @@ $(document).ready(function(){
 				if(attackerHp > 0){ //if attacker still have hp show message
 					msg.html("<p>You attacked " + character[defenderId]["name"] + " for "+ attackPower + " damage. <br>" +
 					character[defenderId]["name"] + " attacked you back for "+ character[defenderId]["counterAttack"] + " damage.</p>");
-				}else{ //if attacker's hp is lest than 1 then game over
+				}else{ //if attacker's hp is less than 1 then game over
 					msg.html("<p>You have been defeated...</P>");
 					$("#attack").css("display", "none");
 					$("#restart").css("display", "block");
